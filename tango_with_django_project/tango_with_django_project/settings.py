@@ -30,6 +30,12 @@ TEMPLATE_DEBUG = True
 
 ALLOWED_HOSTS = []
 
+PASSWORD_HASHERS = (
+'django.contrib.auth.hashers.PBKDF2PasswordHasher',
+'django.contrib.auth.hashers.PBKDF2SHA1PasswordHasher',
+)
+
+LOGIN_URL = '/rango/login/'
 
 # Application definition
 
@@ -59,15 +65,6 @@ TEMPLATE_DIRS = [
     # Don't forget to use absolute paths, not relative paths.
     TEMPLATE_PATH,
 ]
-
-STATIC_URL = '/static/'
-
-MEDIA_URL = '/media/'
-
-STATICFILES_DIRS = (
-    STATIC_PATH,
-    MEDIA_ROOT,
-)
 
 ROOT_URLCONF = 'tango_with_django_project.urls'
 
@@ -102,3 +99,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 
 STATIC_URL = '/static/'
+
+MEDIA_URL = '/media/'
+
+STATICFILES_DIRS = (
+    STATIC_PATH,
+    MEDIA_ROOT,
+)
