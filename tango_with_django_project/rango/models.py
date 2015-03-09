@@ -22,7 +22,7 @@ class Page(models.Model):
     views = models.IntegerField(default=0)
 
     def __unicode__(self):
-        return self.titlev
+        return self.title   
 
 class UserProfile(models.Model):
     # This line is required. Links UserProfile to a User model instance.
