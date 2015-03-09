@@ -7,6 +7,7 @@ from rango.forms import CategoryForm
 from rango.forms import PageForm
 from rango.forms import UserForm, UserProfileForm
 from datetime import datetime
+from rango.bing_search import run_query
 
 def index(request):
     category_list = Category.objects.order_by('-likes')[:5]
@@ -235,3 +236,16 @@ def restricted(request):
 #
 #    # Take the user back to the homepage.
 #    return HttpResponseRedirect('/rango/')
+
+def search(request):
+
+    result_list = []
+
+    if request.method == 'POST':
+        query = request.POST['query'].strip()
+
+        if query:
+            # Run our Bing function to get the results list!
+            result_list = run_query(query)
+
+    return render(request, 'rango/search.html', {'result_list': result_list})
