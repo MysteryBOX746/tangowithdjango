@@ -3,8 +3,7 @@ import urllib, urllib2
 import keys
 
 
-BING_API_KEY = '34clE45HMrwAQyCJ3PZGF8zZwbGfhQjffDC9UjntiBo'
-
+BING_API_KEY = keys.BING_API_KEY
 def run_query(search_terms):
     # Specify the base
     root_url = 'https://api.datamarket.azure.com/Bing/Search/'
